@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id "name.remal.lombok" version "2.2.1"
+}
+
+group = 'ru.netology'
+version = '1.0-SNAPSHOT'
+
+sourceCompatibility = 11
+
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+    testImplementation 'com.codeborne:selenide:6.17.0'
+    testImplementation 'org.slf4j:slf4j-simple:1.7.32'
+    testImplementation 'com.github.javafaker:javafaker:1.0.1'
+}
+
+test {
+    useJUnitPlatform()
+    systemProperty 'selenide.headless', System.getProperty('selenide.headless')
+}
